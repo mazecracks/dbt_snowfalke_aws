@@ -259,12 +259,3 @@ As we complete each new task:
    git push
    ```
 
-## 7. Future sections — not started
-
-- [ ] Install and verify dbt
-- [ ] Initialize the dbt project
-- [ ] Configure Snowflake connection securely
-- [ ] Check the connection and run an initial model
-- [ ] Add AWS ingestion steps
-
-**Next documentation update:** Continue from the virtual environment setup when ready.
