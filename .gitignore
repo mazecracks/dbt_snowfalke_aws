@@ -19,4 +19,5 @@ dbt_packages/
 logs/
 
 # Local dbt connection profiles
-profiles.yml
+profiles.yml/data/dbts-token-secret.txt
+data/SETUP_GUIDE.md

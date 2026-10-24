@@ -1,0 +1,16 @@
+{{ config(materialized='incremental', unique_key='host_id') }}
+
+select 
+    host_id,
+    REPLACE(HOST_NAME, ' ', '_') AS HOST_NAME,
+    HOST_SINCE AS HOST_SINCE,
+    IS_SUPERHOST AS IS_SUPERHOST,
+    RESPONSE_RATE AS RESPONSE_RATE,
+    CASE 
+        WHEN RESPONSE_RATE > 95 THEN 'VERY GOOD'
+        WHEN RESPONSE_RATE > 80 THEN 'GOOD'
+        WHEN RESPONSE_RATE > 60 THEN 'FAIR'
+        ELSE 'POOR'
+    END AS RESPONSE_CATEGORY,
+    CREATED_AT AS CREATED_AT
+from {{ ref('bronze_host') }}
